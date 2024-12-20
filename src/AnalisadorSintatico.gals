@@ -21,8 +21,12 @@ PALAVRA: {LETRA}+&#13;
 FUN: {LETRA}({LETRA} | {DIGITO} | "_")*</tokens><non_terminals>&lt;PROGRAMA&gt;&#13;
 &lt;DECLARACOES&gt;&#13;
 &lt;DECLARACAO&gt;&#13;
+&lt;MULTIDECLARACOES&gt;&#13;
 &lt;ATRIBUICAO&gt;&#13;
 &lt;COMPARACAO&gt;&#13;
+&lt;OPERACAO&gt;&#13;
+&lt;MULTIOPERACOES&gt;&#13;
+&lt;SEPARADOR&gt;&#13;
 &lt;ALGORITMO&gt;&#13;
 &lt;CORPODEALGORITMO&gt;&#13;
 &lt;TERMO&gt;&#13;
@@ -33,10 +37,16 @@ FUN: {LETRA}({LETRA} | {DIGITO} | "_")*</tokens><non_terminals>&lt;PROGRAMA&gt;&
 &lt;MULTIDECLARACOES&gt; ::= &lt;DECLARACAO&gt; | î;&#13;
 &lt;ATRIBUICAO&gt; ::= VAR ATRIB &lt;TERMO&gt; PTV;&#13;
 &lt;COMPARACAO&gt; ::= &lt;TERMO&gt; OP_RELA &lt;TERMO&gt;;&#13;
-&lt;ALGORITMO&gt; ::= ALG &lt;FUNCAO&gt;;&#13;
-&lt;CORPODEALGORITMO&gt; ::= &lt;FUNCAO&gt; | &lt;DECLARACAO&gt; &#13;
+&lt;OPERACAO&gt; ::= &lt;TERMO&gt; OP_ARIT &lt;TERMO&gt; &lt;MULTIOPERACOES&gt; PTV | &lt;SEPARADOR&gt;;&#13;
+&lt;MULTIOPERACOES&gt; ::= OP_ARIT &lt;TERMO&gt; &lt;MULTIOPERACOES&gt; | î;&#13;
+&lt;SEPARADOR&gt; ::= AP &lt;OPERACAO&gt; FP;&#13;
+&lt;ALGORITMO&gt; ::= ALG &lt;CORPODEALGORITMO&gt;;&#13;
+&lt;CORPODEALGORITMO&gt; ::= &lt;FUNCAO&gt; &#13;
+	| &lt;DECLARACAO&gt; &#13;
 	| REP AP &lt;COMPARACAO&gt; FP AC &lt;CORPODEALGORITMO&gt; FC &#13;
-	| PARA AP &lt;ATRIBUICAO&gt; PTV &lt;COMPARACAO&gt; PTV &lt;ATRIBUICAO&gt;;&#13;
-&lt;TERMO&gt; ::=  VAR | NUM | FUN | PALAVRA;&#13;
-&lt;FUNCAO&gt; ::= TIPO FUN AP &lt;PARAMETRO&gt; FP AC &lt;CORPODEALGORITMO&gt; FC;&#13;
-&lt;PARAMETRO&gt; ::= VAR | î;</grammar></data></gals_file>
+	| PARA AP &lt;ATRIBUICAO&gt; PTV &lt;COMPARACAO&gt; PTV &lt;ATRIBUICAO&gt;&#13;
+	| FUN AP &lt;PARAMETRO&gt; FP;&#13;
+&#13;
+&lt;TERMO&gt; ::= VAR | NUM | FUN AP FP | PALAVRA | &lt;OPERACAO&gt;;&#13;
+&lt;FUNCAO&gt; ::= TIPO FUN AP &lt;PARAMETRO&gt; FP AC &lt;CORPODEALGORITMO&gt; RET &lt;TERMO&gt; FC;&#13;
+&lt;PARAMETRO&gt; ::= &lt;TERMO&gt; | î;</grammar></data></gals_file>
