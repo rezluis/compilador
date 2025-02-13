@@ -100,6 +100,18 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class InicioContext extends ParserRuleContext {
+		public InicioContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_inicio; }
+	 
+		public InicioContext() { }
+		public void copyFrom(InicioContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NInicioContext extends InicioContext {
 		public AlgoritmoContext algoritmo() {
 			return getRuleContext(AlgoritmoContext.class,0);
 		}
@@ -107,17 +119,14 @@ public class MinhaGramaticaParser extends Parser {
 		public DeclaracoesContext declaracoes() {
 			return getRuleContext(DeclaracoesContext.class,0);
 		}
-		public InicioContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_inicio; }
+		public NInicioContext(InicioContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterInicio(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNInicio(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitInicio(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNInicio(this);
 		}
 	}
 
@@ -126,6 +135,7 @@ public class MinhaGramaticaParser extends Parser {
 		enterRule(_localctx, 0, RULE_inicio);
 		int _la;
 		try {
+			_localctx = new NInicioContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(27);
@@ -157,6 +167,18 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclaracoesContext extends ParserRuleContext {
+		public DeclaracoesContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_declaracoes; }
+	 
+		public DeclaracoesContext() { }
+		public void copyFrom(DeclaracoesContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class BlocoDeclaracoesContext extends DeclaracoesContext {
 		public TerminalNode DEC() { return getToken(MinhaGramaticaParser.DEC, 0); }
 		public List<DeclContext> decl() {
 			return getRuleContexts(DeclContext.class);
@@ -168,17 +190,14 @@ public class MinhaGramaticaParser extends Parser {
 		public TerminalNode PTV(int i) {
 			return getToken(MinhaGramaticaParser.PTV, i);
 		}
-		public DeclaracoesContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_declaracoes; }
+		public BlocoDeclaracoesContext(DeclaracoesContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterDeclaracoes(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterBlocoDeclaracoes(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitDeclaracoes(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitBlocoDeclaracoes(this);
 		}
 	}
 
@@ -187,6 +206,7 @@ public class MinhaGramaticaParser extends Parser {
 		enterRule(_localctx, 2, RULE_declaracoes);
 		int _la;
 		try {
+			_localctx = new BlocoDeclaracoesContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(32);
@@ -222,19 +242,28 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclContext extends ParserRuleContext {
-		public TerminalNode TIPO() { return getToken(MinhaGramaticaParser.TIPO, 0); }
-		public TerminalNode VAR() { return getToken(MinhaGramaticaParser.VAR, 0); }
 		public DeclContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_decl; }
+	 
+		public DeclContext() { }
+		public void copyFrom(DeclContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NDeclaracaoContext extends DeclContext {
+		public TerminalNode TIPO() { return getToken(MinhaGramaticaParser.TIPO, 0); }
+		public TerminalNode VAR() { return getToken(MinhaGramaticaParser.VAR, 0); }
+		public NDeclaracaoContext(DeclContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterDecl(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNDeclaracao(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitDecl(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNDeclaracao(this);
 		}
 	}
 
@@ -242,6 +271,7 @@ public class MinhaGramaticaParser extends Parser {
 		DeclContext _localctx = new DeclContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_decl);
 		try {
+			_localctx = new NDeclaracaoContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(40);
@@ -263,6 +293,18 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AlgoritmoContext extends ParserRuleContext {
+		public AlgoritmoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_algoritmo; }
+	 
+		public AlgoritmoContext() { }
+		public void copyFrom(AlgoritmoContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class BolcoProgramaContext extends AlgoritmoContext {
 		public TerminalNode ALG() { return getToken(MinhaGramaticaParser.ALG, 0); }
 		public List<InstrContext> instr() {
 			return getRuleContexts(InstrContext.class);
@@ -270,17 +312,14 @@ public class MinhaGramaticaParser extends Parser {
 		public InstrContext instr(int i) {
 			return getRuleContext(InstrContext.class,i);
 		}
-		public AlgoritmoContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_algoritmo; }
+		public BolcoProgramaContext(AlgoritmoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterAlgoritmo(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterBolcoPrograma(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitAlgoritmo(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitBolcoPrograma(this);
 		}
 	}
 
@@ -289,6 +328,7 @@ public class MinhaGramaticaParser extends Parser {
 		enterRule(_localctx, 6, RULE_algoritmo);
 		int _la;
 		try {
+			_localctx = new BolcoProgramaContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(43);
@@ -322,23 +362,32 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class InstrContext extends ParserRuleContext {
+		public InstrContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_instr; }
+	 
+		public InstrContext() { }
+		public void copyFrom(InstrContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NInstrucaoContext extends InstrContext {
 		public AtribContext atrib() {
 			return getRuleContext(AtribContext.class,0);
 		}
 		public AcaoContext acao() {
 			return getRuleContext(AcaoContext.class,0);
 		}
-		public InstrContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_instr; }
+		public NInstrucaoContext(InstrContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterInstr(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNInstrucao(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitInstr(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNInstrucao(this);
 		}
 	}
 
@@ -350,6 +399,7 @@ public class MinhaGramaticaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
+				_localctx = new NInstrucaoContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(50);
@@ -357,6 +407,7 @@ public class MinhaGramaticaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new NInstrucaoContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(51);
@@ -378,6 +429,18 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class FuncaoContext extends ParserRuleContext {
+		public FuncaoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_funcao; }
+	 
+		public FuncaoContext() { }
+		public void copyFrom(FuncaoContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NFuncaoContext extends FuncaoContext {
 		public TerminalNode TIPO() { return getToken(MinhaGramaticaParser.TIPO, 0); }
 		public TerminalNode FUN() { return getToken(MinhaGramaticaParser.FUN, 0); }
 		public TerminalNode AP() { return getToken(MinhaGramaticaParser.AP, 0); }
@@ -396,17 +459,14 @@ public class MinhaGramaticaParser extends Parser {
 		public TerminalNode RET() { return getToken(MinhaGramaticaParser.RET, 0); }
 		public TerminalNode VAR() { return getToken(MinhaGramaticaParser.VAR, 0); }
 		public TerminalNode PTV() { return getToken(MinhaGramaticaParser.PTV, 0); }
-		public FuncaoContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_funcao; }
+		public NFuncaoContext(FuncaoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterFuncao(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNFuncao(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitFuncao(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNFuncao(this);
 		}
 	}
 
@@ -416,6 +476,7 @@ public class MinhaGramaticaParser extends Parser {
 		int _la;
 		try {
 			int _alt;
+			_localctx = new NFuncaoContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(54);
@@ -485,23 +546,32 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ParametrosContext extends ParserRuleContext {
+		public ParametrosContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_parametros; }
+	 
+		public ParametrosContext() { }
+		public void copyFrom(ParametrosContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NParametrosContext extends ParametrosContext {
 		public List<ParametroContext> parametro() {
 			return getRuleContexts(ParametroContext.class);
 		}
 		public ParametroContext parametro(int i) {
 			return getRuleContext(ParametroContext.class,i);
 		}
-		public ParametrosContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_parametros; }
+		public NParametrosContext(ParametrosContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterParametros(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNParametros(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitParametros(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNParametros(this);
 		}
 	}
 
@@ -510,6 +580,7 @@ public class MinhaGramaticaParser extends Parser {
 		enterRule(_localctx, 12, RULE_parametros);
 		int _la;
 		try {
+			_localctx = new NParametrosContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(75);
@@ -545,18 +616,27 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ParametroContext extends ParserRuleContext {
-		public TerminalNode VAR() { return getToken(MinhaGramaticaParser.VAR, 0); }
 		public ParametroContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parametro; }
+	 
+		public ParametroContext() { }
+		public void copyFrom(ParametroContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NParametroContext extends ParametroContext {
+		public TerminalNode VAR() { return getToken(MinhaGramaticaParser.VAR, 0); }
+		public NParametroContext(ParametroContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterParametro(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNParametro(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitParametro(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNParametro(this);
 		}
 	}
 
@@ -564,6 +644,7 @@ public class MinhaGramaticaParser extends Parser {
 		ParametroContext _localctx = new ParametroContext(_ctx, getState());
 		enterRule(_localctx, 14, RULE_parametro);
 		try {
+			_localctx = new NParametroContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(83);
@@ -583,6 +664,46 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AtribContext extends ParserRuleContext {
+		public AtribContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_atrib; }
+	 
+		public AtribContext() { }
+		public void copyFrom(AtribContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NAtribComOperacaoContext extends AtribContext {
+		public OperacaoContext operacao() {
+			return getRuleContext(OperacaoContext.class,0);
+		}
+		public NAtribComOperacaoContext(AtribContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNAtribComOperacao(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNAtribComOperacao(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NAtribComVarContext extends AtribContext {
+		public TerminalNode VAR() { return getToken(MinhaGramaticaParser.VAR, 0); }
+		public NAtribComVarContext(AtribContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNAtribComVar(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNAtribComVar(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NAtribComAtribContext extends AtribContext {
 		public TerminalNode ATR() { return getToken(MinhaGramaticaParser.ATR, 0); }
 		public TerminalNode VAR() { return getToken(MinhaGramaticaParser.VAR, 0); }
 		public TerminalNode NUM() { return getToken(MinhaGramaticaParser.NUM, 0); }
@@ -591,18 +712,27 @@ public class MinhaGramaticaParser extends Parser {
 			return getRuleContext(OperacaoContext.class,0);
 		}
 		public TerminalNode FP() { return getToken(MinhaGramaticaParser.FP, 0); }
-		public TerminalNode PTV() { return getToken(MinhaGramaticaParser.PTV, 0); }
-		public AtribContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_atrib; }
+		public NAtribComAtribContext(AtribContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterAtrib(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNAtribComAtrib(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitAtrib(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNAtribComAtrib(this);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NAtribComPTVContext extends AtribContext {
+		public TerminalNode PTV() { return getToken(MinhaGramaticaParser.PTV, 0); }
+		public NAtribComPTVContext(AtribContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNAtribComPTV(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNAtribComPTV(this);
 		}
 	}
 
@@ -614,6 +744,7 @@ public class MinhaGramaticaParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
+				_localctx = new NAtribComAtribContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(85);
@@ -649,6 +780,7 @@ public class MinhaGramaticaParser extends Parser {
 				}
 				break;
 			case 2:
+				_localctx = new NAtribComOperacaoContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(94);
@@ -656,6 +788,7 @@ public class MinhaGramaticaParser extends Parser {
 				}
 				break;
 			case 3:
+				_localctx = new NAtribComPTVContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(95);
@@ -663,6 +796,7 @@ public class MinhaGramaticaParser extends Parser {
 				}
 				break;
 			case 4:
+				_localctx = new NAtribComVarContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(96);
@@ -845,23 +979,36 @@ public class MinhaGramaticaParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class OperacaoContext extends ParserRuleContext {
+		public OperacaoContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_operacao; }
+	 
+		public OperacaoContext() { }
+		public void copyFrom(OperacaoContext ctx) {
+			super.copyFrom(ctx);
+		}
+
+		public OperandoContext operando(int i) {
+			return getRuleContext(OperandoContext.class, i);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NOperacaoContext extends OperacaoContext {
 		public OperandoContext operando() {
 			return getRuleContext(OperandoContext.class,0);
 		}
 		public Operacao_caudaContext operacao_cauda() {
 			return getRuleContext(Operacao_caudaContext.class,0);
 		}
-		public OperacaoContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_operacao; }
+		public NOperacaoContext(OperacaoContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterOperacao(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).enterNOperacao(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitOperacao(this);
+			if ( listener instanceof MinhaGramaticaListener ) ((MinhaGramaticaListener)listener).exitNOperacao(this);
 		}
 	}
 
@@ -874,6 +1021,7 @@ public class MinhaGramaticaParser extends Parser {
 			switch (_input.LA(1)) {
 			case VAR:
 			case NUM:
+				_localctx = new NOperacaoContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(119);
@@ -881,6 +1029,7 @@ public class MinhaGramaticaParser extends Parser {
 				}
 				break;
 			case OP_ARIT:
+				_localctx = new NOperacaoContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(120);

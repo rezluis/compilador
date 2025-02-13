@@ -1,0 +1,5 @@
+DECLARACOES
+int $b;
+ALGORITMO
+$a + $b;
+}

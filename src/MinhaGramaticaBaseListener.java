@@ -16,109 +16,145 @@ public class MinhaGramaticaBaseListener implements MinhaGramaticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInicio(MinhaGramaticaParser.InicioContext ctx) { }
+	@Override public void enterNInicio(MinhaGramaticaParser.NInicioContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInicio(MinhaGramaticaParser.InicioContext ctx) { }
+	@Override public void exitNInicio(MinhaGramaticaParser.NInicioContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclaracoes(MinhaGramaticaParser.DeclaracoesContext ctx) { }
+	@Override public void enterBlocoDeclaracoes(MinhaGramaticaParser.BlocoDeclaracoesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclaracoes(MinhaGramaticaParser.DeclaracoesContext ctx) { }
+	@Override public void exitBlocoDeclaracoes(MinhaGramaticaParser.BlocoDeclaracoesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDecl(MinhaGramaticaParser.DeclContext ctx) { }
+	@Override public void enterNDeclaracao(MinhaGramaticaParser.NDeclaracaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDecl(MinhaGramaticaParser.DeclContext ctx) { }
+	@Override public void exitNDeclaracao(MinhaGramaticaParser.NDeclaracaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAlgoritmo(MinhaGramaticaParser.AlgoritmoContext ctx) { }
+	@Override public void enterBolcoPrograma(MinhaGramaticaParser.BolcoProgramaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAlgoritmo(MinhaGramaticaParser.AlgoritmoContext ctx) { }
+	@Override public void exitBolcoPrograma(MinhaGramaticaParser.BolcoProgramaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInstr(MinhaGramaticaParser.InstrContext ctx) { }
+	@Override public void enterNInstrucao(MinhaGramaticaParser.NInstrucaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInstr(MinhaGramaticaParser.InstrContext ctx) { }
+	@Override public void exitNInstrucao(MinhaGramaticaParser.NInstrucaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFuncao(MinhaGramaticaParser.FuncaoContext ctx) { }
+	@Override public void enterNFuncao(MinhaGramaticaParser.NFuncaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFuncao(MinhaGramaticaParser.FuncaoContext ctx) { }
+	@Override public void exitNFuncao(MinhaGramaticaParser.NFuncaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParametros(MinhaGramaticaParser.ParametrosContext ctx) { }
+	@Override public void enterNParametros(MinhaGramaticaParser.NParametrosContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParametros(MinhaGramaticaParser.ParametrosContext ctx) { }
+	@Override public void exitNParametros(MinhaGramaticaParser.NParametrosContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParametro(MinhaGramaticaParser.ParametroContext ctx) { }
+	@Override public void enterNParametro(MinhaGramaticaParser.NParametroContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParametro(MinhaGramaticaParser.ParametroContext ctx) { }
+	@Override public void exitNParametro(MinhaGramaticaParser.NParametroContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAtrib(MinhaGramaticaParser.AtribContext ctx) { }
+	@Override public void enterNAtribComAtrib(MinhaGramaticaParser.NAtribComAtribContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAtrib(MinhaGramaticaParser.AtribContext ctx) { }
+	@Override public void exitNAtribComAtrib(MinhaGramaticaParser.NAtribComAtribContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNAtribComOperacao(MinhaGramaticaParser.NAtribComOperacaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNAtribComOperacao(MinhaGramaticaParser.NAtribComOperacaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNAtribComPTV(MinhaGramaticaParser.NAtribComPTVContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNAtribComPTV(MinhaGramaticaParser.NAtribComPTVContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNAtribComVar(MinhaGramaticaParser.NAtribComVarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNAtribComVar(MinhaGramaticaParser.NAtribComVarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -136,13 +172,13 @@ public class MinhaGramaticaBaseListener implements MinhaGramaticaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperacao(MinhaGramaticaParser.OperacaoContext ctx) { }
+	@Override public void enterNOperacao(MinhaGramaticaParser.NOperacaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperacao(MinhaGramaticaParser.OperacaoContext ctx) { }
+	@Override public void exitNOperacao(MinhaGramaticaParser.NOperacaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -2,11 +2,12 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class MainLexer {
 
     public static void main(String[] args) {
-        String filename = "C:\\Users\\luis felipe\\UFLA 2024-2\\Compiladores\\compilador\\src\\fatorial.txt";
+        String filename = "C:\\Users\\luis felipe\\UFLA 2024-2\\Compiladores\\compilador\\src\\teste.txt";
         try {
             CharStream input = CharStreams.fromFileName(filename);
             MinhaGramaticaLexer lexer = new MinhaGramaticaLexer(input);
@@ -16,6 +17,14 @@ public class MainLexer {
             ParseTree ast = parser.inicio();
 
             System.out.println(ast.toStringTree());
+
+            MyListener listener = new MyListener();
+
+            ParseTreeWalker walker = new ParseTreeWalker();
+
+            walker.walk(listener, ast);
+
+            System.out.println(listener.getTabelaSimbolos().toString());
 
 
         } catch (Exception e) {
