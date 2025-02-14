@@ -1,0 +1,4 @@
+DECLARACOES
+int $a;
+ALGORITMO
+$a = 10;
